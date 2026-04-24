@@ -4,7 +4,7 @@ import dotenv from "dotenv"
 import { connectDB } from "./config/db.js"
 import authRoutes from "./routes/authRoutes.js"
 import gigRoutes from "./routes/gigRoutes.js"
-
+import orderRoutes from "./routes/orderRoutes.js"
 
 
 dotenv.config()
@@ -23,6 +23,7 @@ app.use(express.json())
 
 app.use("/api/auth", authRoutes)
 app.use("/api/gigs", gigRoutes)
+app.use("/api/orders", orderRoutes)
 
 app.get("/", (req, res) => {
       console.log("Server is running ✅");

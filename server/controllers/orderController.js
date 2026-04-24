@@ -1,5 +1,5 @@
-import Order from "../model/Order";
-import Gig from "../model/Gig";
+import Order from "../model/Order.js";
+import Gig from "../model/Gig.js";
 
 // place order - only client
 
@@ -108,8 +108,26 @@ export const updateOrderStatus = async (req, res) => {
             }
 
             //only client can complete or cancel
+            if (status === "completed" || status === "cancelled") {
+                  if (order.client.toString() !== req.user.userId) {
+                        return req.status(403).json({
+                              message: " Not authorized "
+                        })
+                  }
+            }
+
+            order.status = status 
+            await order.save()
+
+            res.status(200).json({
+                  message: "Order status updated ✅",
+                  order
+            })
             
       } catch (error) {
-            
+            req.status(500).json({
+                  message: "Server error" ,
+                  error: error.message
+            })
       }
 }
