@@ -8,7 +8,7 @@ import { getClientOders, getFreelancerOrders, placeOrder, updateOrderStatus } fr
 
 const router = express.Router()
 
-router.post("/", verifyToken, authorizeRoles("clien"), placeOrder)
+router.post("/", verifyToken, authorizeRoles("client"), placeOrder)
 
 //cleint sees their orders
 router.get("/client", verifyToken, authorizeRoles("client"), getClientOders)
