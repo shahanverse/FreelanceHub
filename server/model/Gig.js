@@ -19,7 +19,7 @@ const gigSchema = new mongoose.Schema({
             type: String,
             required: true,
             enum: [
-                  "WEb Development",
+                  "Web Development",
                   "Mobile Development",
                   "Graphic Design",
                   "Digital Marketing",

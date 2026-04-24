@@ -50,7 +50,7 @@ export const getAllGigs = async (req, res) => {
     //find gigs and populate freelancer name
 
     const gigs = await Gig.find(filter).populate(
-      "freelacer",
+      "freelancer",
       "name email profilepicture",
     );
     // populate means -> instead of just showing freelancer id , show their actual name etc..
