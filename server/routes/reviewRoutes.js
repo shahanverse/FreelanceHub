@@ -1,7 +1,7 @@
 import express from "express";
-import { verifyToken } from "../middleware/authMiddleware";
-import { authorizeRoles } from "../middleware/roleMiddleware";
-import { addReview, getGidReviews } from "../controllers/reviewController";
+import { verifyToken } from "../middleware/authMiddleware.js";
+import { authorizeRoles } from "../middleware/roleMiddleware.js";
+import { addReview, getGidReviews } from "../controllers/reviewController.js";
 
 const router = express.Router()
 
