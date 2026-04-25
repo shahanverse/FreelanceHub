@@ -6,7 +6,7 @@ import authRoutes from "./routes/authRoutes.js"
 import gigRoutes from "./routes/gigRoutes.js"
 import orderRoutes from "./routes/orderRoutes.js"
 import reviewRoutes from "./routes/reviewRoutes.js"
-import adminRoutes from ".routes/adminRoutes.js"
+import adminRoutes from "./routes/adminRoutes.js"
 
 dotenv.config()
 
