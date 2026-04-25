@@ -1,6 +1,6 @@
 import Review from "../model/Review.js";
-import Gig from "../models/Gig.js"
-import Order from "../models/Orders.js"
+import Gig from "../model/Gig.js"
+import Order from "../model/Order.js"
 
 // add review - only client 
 

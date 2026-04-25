@@ -10,10 +10,9 @@ const reviewSchema = new mongoose.Schema({
       },
 
       client: {
-            type: Number,
-            required: true,
-            min: 1,
-            max: 5
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true
             // who is leaving the review
       },
       

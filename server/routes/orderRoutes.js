@@ -19,6 +19,6 @@ router.get("/freelancer", verifyToken, authorizeRoles("freelancer"), getFreelanc
 
 //update order status
 
-router.put(";id", verifyToken, updateOrderStatus)
+router.put("/:id", verifyToken, updateOrderStatus)
 
 export default router
