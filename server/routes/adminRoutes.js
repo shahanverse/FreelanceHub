@@ -2,7 +2,7 @@ import express from "express";
 import { verifyToken } from "../middleware/authMiddleware.js";
 import { authorizeRoles } from "../middleware/roleMiddleware.js";
 import { deleteUser, getAllOrders, getAllUsers, getDashBoardStats } from "../controllers/adminController.js";
-import { getAllGigs } from "../controllers/gigController.js"
+import { deleteGig, getAllGigs } from "../controllers/gigController.js"
 
 const router = express.Router()
 
@@ -22,7 +22,9 @@ router.get("/orders", verifyToken, authorizeRoles("admin"), getAllOrders)
 router.get("/gigs", verifyToken, authorizeRoles("admin"), getAllGigs)
 // gel all gigs
 
-router.delete('/gig/:id', verifyToken, authorizeRoles("admin"), getDashBoardStats)
+router.delete('/gig/:id', verifyToken, authorizeRoles("admin"), deleteGig)
 //get dashboard stats
+
+router.get('/stats', verifyToken, authorizeRoles("admin"), getDashBoardStats)
 
 export default router
