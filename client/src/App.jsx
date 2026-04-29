@@ -1,11 +1,17 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Login from "./pages/auth/Login"
+// BrowserRouter enables routing in React 
+// Routes wraps all Route components
+// Route defines each page path
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-center text-blue-500">
-        FreelanceHub
-      </h1>
-    </div>
-    // just to test tailwind is working
+   <BrowserRouter>
+
+   <Routes>
+    <Route path="/login" element={<Login/>} />
+   </Routes>
+   </BrowserRouter>
   )
 }
 
