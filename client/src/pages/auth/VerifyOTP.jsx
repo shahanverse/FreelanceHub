@@ -39,7 +39,7 @@ const VerifyOTP = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-black text-white tracking-tight">
-            Freelance <span className="text-blue400">Hun</span>
+            Freelance <span className="text-blue-400">Hub</span>
           </h1>
           <p className="text-slate-400 mt-2 text-sm">
             Enter the OTP sent to your email
@@ -64,9 +64,9 @@ const VerifyOTP = () => {
             </label>
             <input
               type="text"
-              placeholder="enter 6 digit OTP"
+              placeholder="Enter 6 digit OTP"
               value={otp}
-              onchange={(e) => setOtp(e.target.value)}
+              onChange={(e) => setOtp(e.target.value)}
               maxLength={6}
               className="bg-white/5 border border/white/10 text-white placeholder-slate-500 rounded-xl p-3 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition text-center text-2xl tracking-widest"
             />
@@ -74,7 +74,7 @@ const VerifyOTP = () => {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="mt-2 bg-blue-500 hover:bg-blue400 diabled:opacity-50 text-white font-bold rounde-xl p-3 transition duration-200 shadow-lg shadow-blue-500/25"
+            className="flex mt-2 bg-blue-500 hover:bg-blue-400 diabled:opacity-50 text-white font-bold rounded-xl p-3 transition duration-200 shadow-lg shadow-blue-500/25 "
           >
             {loading ? "verifying..." : "verify OTP"}
           </button>
