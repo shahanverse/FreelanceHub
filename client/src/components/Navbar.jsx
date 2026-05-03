@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice.js";
 
 const Navbar = () => {
-  const dispatch = useDispath();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.auth);
