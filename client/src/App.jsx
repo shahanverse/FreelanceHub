@@ -38,8 +38,16 @@ const App = () => {
         <ClientDashboard/>
       </ProtectedRoute>
     }/>
+
+    <Route path="/admin/dashboard" element={
+  <ProtectedRoute allowedRoles={["admin"]}>
+    <AdminDashboard />
+  </ProtectedRoute>
+} />
    </Routes>
    </BrowserRouter>
+
+   
   )
 }
 
