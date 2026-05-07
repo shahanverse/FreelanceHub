@@ -9,6 +9,8 @@ axiosInstance.interceptors.request.use((config) => {
   // runs before every single request automatically
 
   const token = localStorage.getItem("token")
+console.log("Sending token:", token?.slice(0, 20))
+  
   // get token from browser storage
 
   if (token) {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Navbar from "../../components/Navbar"
-import axiosInstance from "../../utils/axiosInstance"
+import axiosInstance from "../../utils/axiosInstance.js"
 
 const AdminDashboard = () => {
             const [stats, setStats] = useState({
@@ -23,7 +23,7 @@ const AdminDashboard = () => {
                   try {
                         const [statusRes, usersRes, gigsRes, ordersRes] = await Promise.all([
                               axiosInstance.get("/admin/stats"),
-                              axiosInstance.get("admin/users"),
+                              axiosInstance.get("/admin/users"),
                               axiosInstance.get("/admin/gigs"),
                               axiosInstance.get("/admin/orders")
 
@@ -110,10 +110,6 @@ const AdminDashboard = () => {
 
                         </div>
 
-
-
-                  </div>
-
                   <div className="flex gap-2 mb-6 ">
                         {["users", "gigs", "orders"].map((tab) => (
                               <button key={tab} onClick={() => setActiveTab(tab)} className={`px-4 py-2 rounded-xl text-sm font-medium transition capitalize ${activeTab === tab
@@ -126,6 +122,7 @@ const AdminDashboard = () => {
                               </button>
                         ))}
                   </div>
+
 
                   {loading ? (
                         <p className="text-slate-400"> Lodaing... </p>
@@ -223,6 +220,9 @@ const AdminDashboard = () => {
 
 
             </div>
+                  </div>
+
+
       )
 }
 
