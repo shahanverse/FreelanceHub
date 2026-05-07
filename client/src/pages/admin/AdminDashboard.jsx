@@ -73,7 +73,7 @@ const AdminDashboard = () => {
             }
       
       return (
-            <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+            <div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-950 to-slate-900">
                   <Navbar />
 
                   <div className="max-w-7xl mx-auto px-6 py-8">
