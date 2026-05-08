@@ -44,6 +44,8 @@ const App = () => {
     <AdminDashboard />
   </ProtectedRoute>
 } />
+
+    
    </Routes>
    </BrowserRouter>
 
