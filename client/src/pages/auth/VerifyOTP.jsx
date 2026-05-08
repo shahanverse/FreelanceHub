@@ -74,7 +74,7 @@ const VerifyOTP = () => {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="flex mt-2 bg-blue-500 hover:bg-blue-400 diabled:opacity-50 text-white font-bold rounded-xl p-3 transition duration-200 shadow-lg shadow-blue-500/25 "
+            className="flex text-center mt-2 bg-blue-500 hover:bg-blue-400 diabled:opacity-50 text-white font-bold rounded-xl p-3 transition duration-200 shadow-lg shadow-blue-500/25 "
           >
             {loading ? "verifying..." : "verify OTP"}
           </button>
