@@ -13,6 +13,38 @@ const ClientDashboard = () => {
 
   const [loading, setLoading] = useState(true)
 
+  const [orderLoading, setOrderLoading] = useState(null)
+
+
+  const handlePlaceOrder = async (gig) => {
+    setOrderLoading(gig._id)
+
+    try {
+      await axiosInstance.post("/orders", {
+        gigId: gig._id,
+        requirements: "I need this service"
+      })
+
+      alert("Order placed successfully! ✅")
+
+      fetchData()
+    } catch (error) {
+      alert(error.response?.data?.message || "Something went wrong")
+      
+    }finally{
+      setOrderLoading(null)
+    }
+  }
+  const handleUpdateOrder = async (orderId, status) => {
+  try {
+    await axiosInstance.put(`/orders/${orderId}`, { status })
+    // update order status
+    fetchData()
+    // refresh orders and stats
+  } catch (error) {
+    console.log(error)
+  }
+}
   
 
   const fetchData = async () => {
@@ -66,7 +98,68 @@ useEffect(() => {
               {orders.filter(o => o.status === "completed").length}
             </p>
           </div>
+          
         </div>
+        <h3 className="text-xl font-bold text-white mb-4 mt-8">My Orders</h3>
+
+{orders.length === 0 ? (
+  <p className="text-slate-400">No orders yet!</p>
+) : (
+  <div className="flex flex-col gap-4 mb-8">
+    {orders.map((order) => (
+      <div key={order._id} className="bg-white/5 border border-white/10 rounded-2xl p-5">
+
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <p className="text-white font-bold">{order.gig?.title}</p>
+            <p className="text-slate-400 text-sm">
+              by {order.freelancer?.name}
+            </p>
+          </div>
+
+          {/* status badge */}
+          <span className={`text-xs px-3 py-1 rounded-full font-medium ${
+            order.status === "completed" ? "bg-green-500/20 text-green-400" :
+            order.status === "delivered" ? "bg-purple-500/20 text-purple-400" :
+            order.status === "accepted" ? "bg-blue-500/20 text-blue-400" :
+            "bg-yellow-500/20 text-yellow-400"
+          }`}>
+            {order.status}
+          </span>
+        </div>
+
+        <p className="text-slate-400 text-sm mb-3">
+          ${order.price} · {order.deliveryDays} days delivery
+        </p>
+
+        {/* action buttons */}
+        <div className="flex gap-2">
+
+          {/* client can complete after freelancer delivers */}
+          {order.status === "delivered" && (
+            <button
+              onClick={() => handleUpdateOrder(order._id, "completed")}
+              className="bg-green-500/20 hover:bg-green-500/30 text-green-400 border border-green-500/20 text-sm font-medium px-4 py-2 rounded-xl transition"
+            >
+              Mark Complete ✅
+            </button>
+          )}
+
+          {/* client can cancel pending order */}
+          {order.status === "pending" && (
+            <button
+              onClick={() => handleUpdateOrder(order._id, "cancelled")}
+              className="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-sm font-medium px-4 py-2 rounded-xl transition"
+            >
+              Cancel Order
+            </button>
+          )}
+
+        </div>
+      </div>
+    ))}
+  </div>
+)}
 
         <h3 className="text-xl font-bold text-white mb-4">Available Gigs</h3>
 
@@ -94,8 +187,8 @@ useEffect(() => {
                     {gig.deliveryDays} days delivery
                   </span>
                 </div>
-                <button className="w-full mt-4 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-xl p-2 transition text-sm">
-                  Order Now
+                <button onClick={() => handlePlaceOrder(gig)} disabled={orderLoading === gig._id} className="w-full mt-4 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-xl p-2 transition text-sm">
+                  {orderLoading === gig._id ? "Ordering..." : "Order "}
                 </button>
               </div>
             ))}
