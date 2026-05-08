@@ -3,7 +3,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-greadient-to-br from-slate-900 via-blue-950 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
       <nav className="flex items-center justify-between px-8 py-5 border-b border-white/10">
         <h1 className="text-2xl font-black text-white">
           Freelancer <span className="text-blue-400">Hub</span>
@@ -26,11 +26,11 @@ const Home = () => {
       </nav>
 
       <div className="max-w-5xl mx-auto px-6 py-24 text-center">
-        <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium px-4 py-2 rounded-full mb-8">
+        <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xl font-medium px-4 py-2 rounded-full mb-8">
           🚀 The Modern Freelancer Marketplace
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+        <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
           for Your project
         </h1>
 
