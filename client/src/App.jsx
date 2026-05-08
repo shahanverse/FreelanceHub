@@ -6,6 +6,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard.jsx"
 import FreelancerDashboard from "./pages/freelancer/FreelancerDashboard.jsx"
 import ClientDashboard from "./pages/client/ClientDashBoard.jsx"
 import ProtectedRoute from "./components/ProtectedRoute"
+import Home from "./pages/Home.jsx"
 // BrowserRouter enables routing in React 
 // Routes wraps all Route components
 // Route defines each page path
@@ -45,7 +46,7 @@ const App = () => {
   </ProtectedRoute>
 } />
 
-    
+    <Route path="/" element={<Home/>}/>
    </Routes>
    </BrowserRouter>
 
