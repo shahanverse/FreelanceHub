@@ -1,7 +1,5 @@
 import dotenv from "dotenv"
 dotenv.config()
-
-
 import express from "express"
 import cors from "cors"
 import { connectDB } from "./config/db.js"
@@ -36,7 +34,7 @@ app.use("/api/ai", aiRoutes)
 
 app.get("/", (req, res) => {
       console.log("Server is running ✅");
-      
+      res.json({ message: "Server is running ✅" });
 })
 
 const PORT = process.env.PORT || 5000
