@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Navbar from "../../components/Navbar"
 import axiosInstance from "../../utils/axiosInstance.js"
+import AIChatbot from "../../components/AIChatbot.jsx"
 
 const AdminDashboard = () => {
             const [stats, setStats] = useState({
@@ -220,6 +221,7 @@ const AdminDashboard = () => {
 
 
             </div>
+            <AIChatbot/>
                   </div>
 
 

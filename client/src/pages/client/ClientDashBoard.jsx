@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Navbar from "../../components/Navbar";
 import axiosInstance from "../../utils/axiosInstance.js";
+import AIChatbot from "../../components/AIChatbot.jsx";
 
 const ClientDashboard = () => {
   const { user } = useSelector((state) => state.auth);
@@ -264,6 +265,7 @@ const ClientDashboard = () => {
           </div>
         )}
       </div>
+      <AIChatbot/>
     </div>
   );
 };
